@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: url-rotator
+    runtime: php
+    buildCommand: |
+      composer install
+      mkdir -p data && chmod 755 data
+    startCommand: php -S 0.0.0.0:$PORT -t public
+    envVars:
+      - key: STORAGE_TYPE
+        value: json
